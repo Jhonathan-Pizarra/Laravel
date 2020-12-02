@@ -1,0 +1,251 @@
+Notas #1:
+-Relación Eventos - Artistas, muchos a muchos (por que, de no, Pierdo el historial)
+-Relación Lugar - Evento, muchos a muchos (Un lugar puede ser sede de varios eventos)
+-Recursos se relaciona con Evento y Lugar, (Lugares por evento, que sería una tabla intermedia -> Conciertos: nombre, fecha, hora, lugar(), artistas(), administradores() )
+-Lugar debe tener capacidad (Aforo)
+
+---------------------------------------------------------------------------------------------------------------------------
+Notas #2:
+- Event Responsabilities: nombre de la responsabilidad, id, etc.
+- Transport: no disponibilidad, ida/vuelta, etc.
+- Band: nombre, etc.
+- El id pasa de 1 a muchos
+- Unión de 2 tablas: tomar 2 numbres Tabla 1 y tabla 2 en orden alfabético. A-B, B-C, C-D, etc.
+
+
+--
+Notas #3:
+En evento yo manajeo el tiempo Evetno pude llamarse "Festival"
+
+
+
+Deber #3:
+MER
+-La relación entre ensayo y EventResponsabilitie etán mal, activitie essay
+Lo que hice fue cambiarle el nombre EventResponsibilitie 
+por ActivtieEvent
+el atributo de nameResp es el responsable de 
+la actividad, que si bien puede también ser una tabla 
+funciona mejor como atributo
+cambie la relacion de ActivtieEvent y admins, 
+ahora admins tiene relacion con Activities
+agregué atributo "gratuito" a tabla conciertos
+
+-Hacer relación entre activity y concert responsabilitie
+le pinto en rojo porque creo que está de más, 
+no se está relacionando a través de los conciertos 
+o admins?
+bueno, igual, se me ocurrió hacer una tabla 
+"Responsabols" para relacionar activities y concertResp,
+y de paso el admin, pero al final solo resultó 
+ser una copia de la tabla admin! pero ahí las 
+relaciones son muchos a responsable, 
+una actividad puede tenr muchso resposables, 
+y un admin puede tener o asignar muchos reponsables
+ 
+-Un admin puede hospededarse en varios lugares, 
+la primera relación debe teener el atributo adminId 
+quien coordina el hospedaje
+-Hacer una tabla intermedia que recibe el id del hopsedaje
+ y del admin, y me dice que admin esta hosepdado 
+en que lugar
+-Tabla food recibe id del admin e id del artista
+
+
+ZenHub
+Duda: CHalo, la rama  que está por default es la "master", necesitas cambiarme eso, sólo tu tienes el permiso :(
+
+-------------------------------------------------------------
+Dudasd Deber #5 - Corregir Sprint #2
+
+-Gestión Usuario: Correcto
+-Gestión Lugar: Correcto
+(Ing. ¿Es posible cambiar el nombre de la rama y o tarea?
+Lo que pasa es que me doy cuenta que Lugar es exclusivo
+para conciertos
+
+-Relaciones Bandas-Artistas:
+Ing. usted hizo que se tome el usuario con sesión iniciada 
+y ese postee un comentario en un artículo
+yo no lo hice porque solo necesito que mis artistas 
+se relacionen con la banda mis artistas no inician sesión
+Pero si necesito que mi artista pertenezca a una banda
+entonces lo que hice fue implementar los métodos hasMany()
+y belongTo()
+Pero no implementé el public static function boot()
+¿Estámos bien?
+
+Mi analogía para hacer la relación fue:
+Un usuario puede escribir varios articulos
+Una banda puede tener varios aristas
+
+un artículo puede recibir varios usuarios
+un artista puede estar en varias bandas? 
+Con esta duda le escribí a Car, y me dijo:
+
+Todos los artistas que llegan son solistas, 
+estos pueden agruparse (en un trio, duo, quinteto, etc)
+para tocar junto a otros artistas
+un artista puede a su vez tocar en un duo y más tarde en 
+un quinteto...
+y al final tooodos tocan en un concierto (que sería como
+el concierto final) 
+
+Hasta ahí, manejamos bien 
+artistas,
+bandas (que serían como agrupaciones conformadas por 1,
+2,3, 4, n personas)
+concerts, que sería el evento en si, pero
+
+¿Band Concert?
+sería la entidad que reúne a los artistas, 
+no a las  agrupaciones (Bands) ¿Verdad?
+y lo que pasa es que estamos viendo a  "BandConcerts"
+como "ArtistConcert" porque cachamos que "BandConcert"
+pueden simplemente ser solistas
+y en ese caso, si está bien que se relacione con banda
+siempre que la banda(agrupacion) tenga un solo integrante
+
+Pero si la banda tiene 3, no podría decir que la banda 
+en si se presenta en el concierto, sino los artistas
+Los artistas, ya que estos pueden estar en varias bandas
+(agrupaciones)
+y al llevar bandas a conciertos, se podrían repetir los 
+artistas
+
+-Gestión Recurso: Correcto
+Ing. de aqui necesito otra entidad "ConcertResource"
+para vincular a esta.
+
+-Gestion Actividades:
+Última clase se dijo:
+
+1) Preguntar a Car:
+¿Son actividades genericas o son específicas?
+Chalo: "Puedo tener como actividades excluisvas para 
+un concierto pero no debo mezclar Itinerario, Transporte,
+aliment.."
+
+Car: "Por ejemplo el concierto es el jueves 
+a las 7:00 am, preparar escenari
+de 13:00 a 14:00 almuerzo
+de 14 -15 es el concierto
+
+Conclusión: son actividades genericas.
+Pero van ligadas a una entidad "Concierto" en este caso 
+
+
+por tanto: Actividades se manejaría así:
+no sería Activities, sino 
+-ConcertActivitie
+-EssayActivitie
+-FestivalActivitie
+
+Entonces
+(Ing. ¿Es posible cambiar el nombre de la rama y o tarea?
+Lo que pasa es que me doy cuenta que Actividad es exclusivo
+para algunas entidades...)
+Yo lo intenté pero git lo asumió como una rama nueva...
+pero no hice de nuevo, solo corregí
+¿No hay como que elimine esa rama "actividades" Ing?
+
+Extra:
+Ing. ¿Dónde valido que si es un artista 
+extrangero me deje ingresar pasaporte
+y si es nacional el CI?
+
+-------------------------------------------------
+Presentar el deber: 
+1ero gestión Concierto
+2do gestión Ensayo
+3ro gestión Festival
+
+Festival se relaciona con ensayos y conciertos
+Actividades Festival no se relaciona con actividades 
+del ensayo o del evento."Son las actividades del festival"
+Las actividades de Concierto y ensayo son iguales
+por tanto podríamos unir en una tabla "Activitie Festival"
+
+
+Eso era todo, gracias Ing.
+
+----------------------------------------------------------
+Un usuario puede escribir varios articulos
+un articulo pertenece a un usuario
+
+Un concierto puede tener varios recursos
+Un recurso pertenece a un concierto
+
+Un concierto puede tener varios lugares
+un lugar pertenece a un concierto
+
+Un festival puede tener varios conciertos
+un concierto pertenece a un festival
+
+Un festival puede tener varios ensayos
+un ensayo pertenece a un festival
+
+
+----------------------------------------------------------
+category user tiene id de user y de categoria
+es muchos a muchos 
+
+categoryuser
+concertResoruce
+
+
+
+---------------------------------------------
+Concierto es Evento
+Ensayo ya no va, ni activity
+Ni relación festival
+
+Evento debe tener un campo: tipo
+
+git pull origin dev descargará la rama dev
+git fecth origin
+git chekout -b 2-gestuinArtista orgodfs
+soluciona los conflictos
+git add .
+comit push  a la misma rama
+avisar para ahce el merge
+
+
+
+----------------
+Ing. como puedo cambiar el nombre de una rama sin afectar las remotas?
+lo que pasa es que cuando renombro una rama local, y le hago push se manda como si fuera una nueva rama.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Se me ocurrió una idea de APP para hacer :D
+Resulta que a veces hay una palabra para describir exactamente lo que necesitamos,
+que tal si ponemos la descripción y más adelante, la app nos retorna un resutlado de las palabras que posiblmenete estemso buscando?
+
+palabra para: conjunto de eventos y ensayos que se hacen -> La tengo en la punta de la lengua, estoy seguro de que existe!
+
+

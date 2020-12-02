@@ -1,0 +1,136 @@
+Video 1
+0:00 presentación curso
+4:05 ¿Qué es un API? 
+4:36 Funcionamiento
+7:10 Caracterísitcas
+10:35 JSON
+11:08 Validador de Json : link
+13:00 Estructura de JSON
+14:35 REST definicion
+15:20 protocos http y API REST
+16:01: POST, GET, PUT, DELETE
+17:19 URI
+18:29 limitaciones RESTfull
+27.29 Propiedades de los métodos
+28:50 metodos idempotentes y seguros
+
+¿El link del github?
+.........................................
+Video 2
+0:50 ¿Qué es Laravel?
+2:22 Instalación 
+
+Ver el .Doc, tiene resumen de los comandos.
+------------------------------------------
+Video 3
+0:26 Estructura de directorios
+2:42 Directorios: app, public, database...etc
+16:49 configuracion del framework
+20:48 .env y variables de entorno
+24:47 mod_rewrite y rutas 
+
+
+------------------------------------------
+Video 4 - Github
+
+00:00 trabajando con git (ver tu .doc)
+6:51 directorio vendor, .env y .gitignore
+11:31 protejer ramas
+14:29 Ramas, funcionamiento
+19:02 Zenhub
+20:39 Zenhub, configuración Workspace
+25:11 Isuees
+26:06 Tareas
+28:24 Milestones
+32:09 Ramas y tareas
+30:00 vincular tareas a sprints
+36:16 Pull Requests
+
+
+--------------------------------------------
+Video 5 - Modelo
+2:31 Qué haremos?
+6:36 Creación del modelo
+9:54 Migraciones
+10:30 up() y down()
+16:31 Editar el modelo
+16:56 $fillable y $guarded
+
+---------------------------------------------
+Video 6 - Enviar a la BDD
+1:19 Libreria Faker
+1:36 Seeder
+
+
+---------------------------------------------
+Vide 7 - Rutas y Postman
+00:00 ¿Qué ahremos? .Rutas y su configuración
+1:18 Rutas
+2:15 configurar endpoints (GET, POST, PUT DELETE)
+11:31 Postman
+16:31 Filtrar una Banda (Postman + Get)
+18:45 Crear una Banda (Postman + Post)
+24:10 Modificar una Banda (Postman + Put)
+31:34 Controladores intro
+
+--------------------------------------------
+video 8: Controladores y Cors
+
+5:42 crear controladores
+7:13 Editar rutas
+11:30 vinculación implícita
+14:12 Objeto Band 
+23_01 intro a cross
+25:23 Crear midelware
+29_58: registar midelware en el kernel
+
+...........................................
+
+Vide #9: Autenticación de Uusario JWT
+
+1:09 ¿Qué es JWT? Json Web Token
+4:59 ¿Cómo funciona JWT?
+8:41 Estructura de un JWT
+13:45 Instalar JWT en Laravel
+14:43 Configurar Providers y aliases
+17:48 Configurar User con JWTSubjct
+19:31 Controladores para User
+28:53 crear rutas y autenticacion para usuarios
+34:41 Crear un usuario
+40:04 Login de usuario
+46:07 Enviando token (Ingresar a una ruta protegida)
+
+-------------------------------------------------------
+Video #10 Relaciones en la BDD
+02:17 Crear relación entre Banda y Artista
+09:38 Crear una tabla con FKs 
+
+
+------------------------------------------------------
+Vide #11 Relaciones en Eloquent (Uno a muchos)
+1:10 añadir método "Banda tiene artistas"  (has many)
+2:30 Eloquent
+4:11 propiedad dinámica
+6:29 filtrar por campos
+6:56 añadir método "Artista" tiene "Bandas"
+9:01 relaciones inversas: Un "Artista" pertenece a una "Banda" (belongs to)
+
+.......................................................
+Video #12 Relaciones con seeder
+00:13 usuario con sesion activa
+1:32 facade Auth 
+02:00 método boot
+07:17 seeder tomando en cuenta relaciones y sesión activa
+20:41 "Desactiva las reestricciones FK"
+21:54 "Reactiva las fk" 
+24:56 Tinker
+
+.......................................................
+Video #13 Relaciones muchos a muchos
+6:46 tabla itnermetdia User Category: User_Category
+11:34 eloquent muchso a muchos
+18:06 inversa de muchos a muchso
+19:55 atributos de la tabla intermedia
+21:30 agregar atributos a tabla intermedia
+25:47 filtrar relaciones
+26:56 Modificar seeders
